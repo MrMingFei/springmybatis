@@ -1,4 +1,4 @@
-package spittr.bean;
+package com.study.springmybatis.entity;
 
 import java.io.Serializable;
 import java.util.Date;
