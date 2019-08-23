@@ -1,6 +1,7 @@
 package com.study.springmybatis.config;
 
 import org.mybatis.spring.SqlSessionFactoryBean;
+import org.mybatis.spring.mapper.MapperScannerConfigurer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
@@ -17,7 +18,7 @@ public class DataConfig {
     public DataSource dataSource(){
         return new EmbeddedDatabaseBuilder()
                 .setType(EmbeddedDatabaseType.H2)
-                .addScript("classpath:datasources/schema.sql")
+                .addScript("classpath:datasource/schema.sql")
                 .build();
     }
 
@@ -25,13 +26,22 @@ public class DataConfig {
     public SqlSessionFactoryBean sqlSessionFactory(DataSource dataSource) throws IOException {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
-        sqlSessionFactoryBean.setTypeAliasesPackage("com.study.springmybatis.dao");
+        sqlSessionFactoryBean.setTypeAliasesPackage("com.study.springmybatis.entity");
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
         sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:com/study/springmybatis/mappers/*.xml"));
+
         org.apache.ibatis.session.Configuration configuration = new org.apache.ibatis.session.Configuration();
         configuration.setMapUnderscoreToCamelCase(true);
         sqlSessionFactoryBean.setConfiguration(configuration);
 
         return sqlSessionFactoryBean;
+    }
+
+    public MapperScannerConfigurer scannerConfigurer(){
+        MapperScannerConfigurer configurer = new MapperScannerConfigurer();
+        configurer.setBasePackage("com.study.springmybatis.dao");
+        configurer.setSqlSessionFactoryBeanName("sqlSessionFactory");
+
+        return configurer;
     }
 }
