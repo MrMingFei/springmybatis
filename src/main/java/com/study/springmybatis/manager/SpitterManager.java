@@ -1,4 +1,4 @@
-package com.study.springmybatis.manager.impl;
+package com.study.springmybatis.manager;
 
 import com.study.springmybatis.dao.SpitterDao;
 import com.study.springmybatis.entity.Spitter;
@@ -23,7 +23,7 @@ public class SpitterManager {
     }
 
     public void find(){
-        Spitter spitter = spitterDao.fingByUsername("shifang");
+        Spitter spitter = spitterDao.findByUsername("shifang");
         System.out.println(spitter.getEmail());
     }
 }

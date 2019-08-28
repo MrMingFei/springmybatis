@@ -16,8 +16,7 @@ public class IndexController {
 
     @RequestMapping(method = GET)
     public String index(Model model){
-        logger.warn("warn");
-        logger.debug("debug");
+
         return "index";
     }
 }

@@ -9,5 +9,5 @@ public interface SpitterDao {
 
     int insert(Spitter spitter);
 
-    Spitter fingByUsername(@Param("username") String username);
+    Spitter findByUsername(@Param("username") String username);
 }
