@@ -17,7 +17,7 @@ import java.util.regex.Pattern;
 public class ApplicationContextXml {
     public static class WebPackge extends RegexPatternTypeFilter {
         public WebPackge() {
-            super(Pattern.compile("springmybatis\\.action"));
+            super(Pattern.compile("com.study.springmybatis\\.action"));
         }
     }
 }

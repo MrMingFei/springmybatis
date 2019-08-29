@@ -3,8 +3,9 @@ package com.study.springmybatis.dao;
 import com.study.springmybatis.entity.Spitter;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
-@Component
+@Repository
 public interface SpitterDao {
 
     int insert(Spitter spitter);
