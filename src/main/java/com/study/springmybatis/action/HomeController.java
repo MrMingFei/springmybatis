@@ -10,13 +10,13 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
 
 @Controller
 @RequestMapping("/")
-public class IndexController {
+public class HomeController {
 
-    private static Logger logger = LoggerFactory.getLogger(IndexController.class);
+    private static Logger logger = LoggerFactory.getLogger(HomeController.class);
 
     @RequestMapping(method = GET)
     public String index(Model model){
 
-        return "index";
+        return "home";
     }
 }
