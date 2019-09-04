@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.study.springmybatis.dao.SpitterDao">
     <resultMap id="BaseResultMap" type="com.study.springmybatis.entity.Spitter">
-        <id column="id" jdbcType="INTEGER" property="id"/>
+        <id column="id" jdbcType="BIGINT" property="id"/>
         <result column="username" jdbcType="VARCHAR" property="username"/>
         <result column="password" jdbcType="VARCHAR" property="password"/>
         <result column="first_name" jdbcType="VARCHAR" property="firstName"/>
@@ -23,7 +23,7 @@
     <select id="findByUsername" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
-        form Spitter
+        from Spitter
         where username = #{username}
     </select>
 </mapper>
