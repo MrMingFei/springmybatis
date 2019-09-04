@@ -21,6 +21,7 @@ public class SpitterController {
     @Autowired
     private SpitterManager spitterManager;
 
+    //使用Spring表单，设置了modelAttribute属性之后需要在模型Model中有一个key为spitter的对象
     @RequestMapping(value = "/register", method = GET)
     public String showRegistraion(Model model){
         model.addAttribute(new Spitter());
