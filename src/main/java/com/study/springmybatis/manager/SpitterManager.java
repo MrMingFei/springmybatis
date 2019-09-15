@@ -12,7 +12,6 @@ public class SpitterManager {
     private SpitterDao spitterDao;
 
     public void insert(Spitter spitter){
-
         spitterDao.insert(spitter);
     }
 
