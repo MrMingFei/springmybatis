@@ -11,7 +11,7 @@ public interface SpittleDao {
 
     List<Spittle> findRecentSpittles();
 
-    List<Spittle> findSpittles(long max, int count);
+    List<Spittle> findSpittles(@Param("max") long max, @Param("count") int count);
 
     Spittle findByID(@Param("id") long id);
 

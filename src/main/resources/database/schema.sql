@@ -1,5 +1,5 @@
 create table Spittle (
-	id int,
+	id bigint,
 	message varchar(140) not null,
 	created_at timestamp not null,
 	latitude double,
